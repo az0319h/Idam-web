@@ -1,0 +1,854 @@
+/* a365.at homepage — values transcribed from the source Webflow stylesheet. */
+.a365 {
+  --black-100: #000;
+  --white-100: #fff;
+  --white-15: #ffffff26;
+  --black-10: #0000001a;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: #333;
+  background: #fff;
+  --font-alpina: var(--font-hn);
+  font-family: var(--font-hn), "Freesentation", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  min-height: 100%;
+}
+.a365 a { color: inherit; text-decoration: none; }
+.a365 img { display: block; max-width: 100%; }
+.a365 strong { font-weight: 700; }
+
+/* ---------- layout primitives ---------- */
+.a365-container { padding: 1rem 1rem 12rem; }
+.a365-container.a365-container-padding-top { padding-top: 3rem; }
+.a365-container.a365-container-footer { padding-top: 1.2rem; padding-bottom: 0; }
+.a365-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  align-content: start;
+  width: 100%;
+}
+.a365-grid.a365-grid-biggap { row-gap: 3rem; }
+.a365-grid-centered { align-items: center; }
+.a365-vflex { display: flex; flex-direction: column; }
+.a365-gap-05 { gap: 0.5rem; }
+.a365-gap-1 { gap: 1rem; }
+.a365-gap-2 { gap: 2rem; }
+.a365-gap-4 { gap: 4rem; }
+.a365-gap-6 { gap: 6rem; }
+
+/* ---------- type ---------- */
+.a365-standard {
+  color: var(--black-100);
+  margin-bottom: -3px;
+  padding-top: 3px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 130%;
+}
+.a365-standard-white { color: var(--white-100); max-width: 450px; text-align: left; }
+.a365-standard-nav { color: var(--white-100); }
+.a365-serif {
+  color: var(--black-100);
+  letter-spacing: -0.02em;
+  font-family: var(--font-alpina), "Freesentation", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 100%;
+}
+.a365-serif-white { color: var(--white-100); }
+.a365-serif-pad { padding-top: 2px; }
+.a365-large {
+  color: var(--black-100);
+  letter-spacing: -0.02em;
+  margin-bottom: -0.5rem;
+  padding-top: 0.5rem;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 110%;
+}
+.a365-large-white { color: var(--white-100); }
+.a365-large-indent { text-indent: calc(25% - 0.25rem); margin-bottom: 0.5rem; }
+.a365-small-heading {
+  color: var(--black-100);
+  margin: 0;
+  padding-top: 3px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+}
+.a365-big-heading {
+  /* 한글은 글자가 글꼴 상자를 거의 다 채워서, 원본(12svw / 90% / 음수 여백)대로 두면 구분선과 겹치고 두 줄로 꺾인다. */
+  color: var(--black-100);
+  letter-spacing: -0.03em;
+  margin: 0;
+  padding-top: 0.5svw;
+  font-size: 8svw;
+  font-weight: 400;
+  line-height: 105%;
+}
+.a365-hero-heading {
+  color: var(--white-100);
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding-top: 1.5vw;
+  font-size: 10vw;
+  font-weight: 400;
+  line-height: 90%;
+}
+
+/* ---------- links / underline ---------- */
+.a365-link { display: inline-block; max-width: 100%; overflow: hidden; text-decoration: none; }
+/* 세로 플렉스 안의 링크는 내용 너비만 차지하게 (밑줄이 글자 끝에서 끝나도록) */
+.a365-contact-block .a365-vflex,
+.a365-about-body,
+.a365-f-cta { align-items: flex-start; }
+.a365-link-inline { align-self: flex-start; }
+.a365-ul {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--black-100);
+  transition: transform 0.6s var(--ease);
+}
+.a365-ul-white { background: var(--white-100); transform: translateX(-100%); }
+.a365-ul-hidden { transform: translateX(-100%); }
+.a365-ul-footer { height: 3px; transform: translateX(-100%); }
+.a365-link:hover > .a365-ul-white,
+.a365-link:hover > .a365-ul-hidden,
+.a365-link:hover > .a365-ul-footer,
+.a365-link:hover .a365-ul-hidden { transform: translateX(0); }
+.a365-link-inline:hover > .a365-ul { animation: a365-ul-cycle 0.7s var(--ease); }
+@keyframes a365-ul-cycle {
+  0% { transform: translateX(0); }
+  49.99% { transform: translateX(-101%); }
+  50% { transform: translateX(101%); }
+  100% { transform: translateX(0); }
+}
+
+/* ---------- reveal ---------- */
+.a365-reveal {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.a365-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .a365-reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ---------- nav ---------- */
+.a365-nav { position: absolute; inset: 0 0 auto; z-index: 3; }
+.a365-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  border-bottom: 1px solid var(--white-15);
+}
+.a365-nav-col1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-right: 1px solid var(--white-15);
+}
+.a365-nav-col2 { padding: 1rem; }
+.a365-logo-link { display: block; line-height: 0; }
+.a365-logo { width: auto; height: 28px; }
+.a365-nav-menu { display: flex; justify-content: space-between; }
+.a365-nav-links { display: flex; justify-content: flex-start; gap: 1rem; }
+.a365-mobile-social { display: none; }
+.a365-menu-button { display: none; }
+
+/* nav dark variant (inner pages: `.nav-2-column.black`) */
+.a365-nav-dark .a365-nav-grid { border-top: 1px solid var(--black-10); border-bottom-color: var(--black-10); }
+.a365-nav-dark .a365-nav-col1 { border-right-color: var(--black-10); }
+.a365-nav-dark .a365-standard-nav { color: var(--black-100); }
+
+/* ---------- contact page ---------- */
+.a365-container.a365-container-page-heading { padding-top: 4rem; padding-bottom: 15rem; }
+.a365-contact-grid { grid-auto-rows: auto; }
+.a365-contact-info { grid-area: 1 / 1 / 2 / 4; }
+.a365-contact-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--black-10);
+}
+.a365-contact-block-first { border-top-style: none; padding-top: 0; }
+.a365-contact-block-links { justify-self: start; }
+.a365-contact-block-links-row2 { grid-area: 2 / 2 / 3 / 3; justify-self: start; }
+.a365-contact-lines { white-space: pre-line; }
+.a365-map-box { grid-column: span 4; margin-top: 0; }
+.a365-map-box img { width: 100%; height: 100%; object-fit: cover; }
+.a365-contact-form-wrap { grid-area: 1 / 8 / 2 / 13; height: 100%; }
+.a365-form-block { background: var(--black-100); padding: 2rem; height: 100%; }
+.a365-form { margin: 0 0 15px; }
+.a365-field,
+.a365-textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-width: 0 0 1px;
+  border-bottom-color: var(--white-15);
+  border-radius: 0;
+  background: var(--black-100);
+  color: var(--white-100);
+  font-family: inherit;
+  font-size: 1.4rem;
+  line-height: 140%;
+  outline: none;
+}
+.a365-field { height: 38px; min-height: 3rem; margin-bottom: 1.5rem; padding: 0.75rem 0 0.5rem; }
+.a365-textarea { height: 38px; min-height: 8rem; margin-bottom: 2rem; padding: 0.75rem 0; resize: both; }
+.a365-field::placeholder, .a365-textarea::placeholder { color: #999; opacity: 1; }
+.a365-field:focus, .a365-textarea:focus { border-bottom-color: var(--white-100); }
+.a365-submit {
+  display: inline-block;
+  border: 0;
+  border-bottom: 1px solid var(--white-100);
+  border-radius: 0;
+  background: var(--black-100);
+  color: var(--white-100);
+  padding: 9px 0 0.25rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 140%;
+  cursor: pointer;
+  transition: opacity 0.3s var(--ease);
+}
+.a365-submit:hover { opacity: 0.5; }
+.a365-submit:disabled { cursor: default; }
+.a365-form-success { color: #000000e6; background: #f5f5f5; padding: 0.75rem 1rem; text-align: center; }
+.a365-form-error { background: #940000; margin-top: 2rem; padding: 0.75rem 1rem; }
+
+/* ---------- work page (tabs) ---------- */
+.a365-container.a365-container-work-page { padding-top: 0; }
+.a365-medium {
+  color: var(--black-100);
+  letter-spacing: -0.02em;
+  margin-bottom: -0.2rem;
+  padding-top: 0.2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 110%;
+}
+.a365-tabs {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-columns: 1fr;
+  gap: 16px;
+  position: relative;
+}
+.a365-tabs-menu { grid-area: 1 / 1 / 2 / 3; display: flex; gap: 1rem; padding-top: 1rem; align-items: flex-start; }
+.a365-tab-link {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: var(--white-100);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.a365-tab-link.is-current { opacity: 1; }
+.a365-tab-link:focus-visible { outline: 1px solid var(--black-100); outline-offset: 2px; }
+.a365-tabs-content { grid-area: 1 / 3 / 2 / 13; position: relative; overflow: hidden; }
+.a365-tab-pane[hidden] { display: none; }
+.a365-tab-pane-grid { padding-top: 1rem; }
+.a365-tab-pane-list { overflow: visible; }
+.a365-work-row { border-bottom: 1px solid var(--black-10); padding: 1rem 0; }
+.a365-work-link-list { width: 100%; }
+.a365-work-list-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  align-content: start;
+  width: 100%;
+}
+.a365-wl-year { grid-area: 1 / 1 / 2 / 2; }
+.a365-wl-name { grid-area: 1 / 2 / 2 / 6; }
+.a365-wl-thumb { grid-area: 1 / 7 / 2 / 9; }
+.a365-wl-button { grid-area: 1 / 9 / 2 / 11; justify-self: end; overflow: hidden; }
+
+/* ---------- info pages (impressum) ---------- */
+.a365-info-container { grid-area: 1 / 4 / 2 / 9; display: flex; flex-direction: column; gap: 1rem; padding-top: 1rem; }
+.a365-info-container a { display: block; }
+
+/* ---------- project detail pages (/works/<slug>) ---------- */
+.a365-work-title {
+  color: var(--black-100);
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding-top: 1.5vw;
+  font-size: 10svw;
+  font-weight: 400;
+  line-height: 90%;
+}
+.a365-gap-8 { gap: 8rem; }
+.a365-project-overview { border-bottom: 1px solid var(--black-10); padding-bottom: 1rem; }
+.a365-po-year { grid-area: 1 / 1 / 2 / 3; align-self: end; }
+.a365-po-info { grid-area: 1 / 7 / 2 / 13; }
+.a365-project-info { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-auto-columns: 1fr; gap: 1rem; }
+.a365-project-info-item { display: flex; flex-direction: column; }
+.a365-pd-lead { grid-area: 1 / 1 / 2 / 7; }
+.a365-project-text { border-top: 1px solid var(--black-10); padding-top: 0.5rem; }
+.a365-pd-services { grid-area: 1 / 1 / 2 / 4; }
+.a365-pd-text { grid-area: 1 / 10 / 2 / 13; }
+.a365-deliverable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--black-10);
+}
+.a365-project-wide {
+  grid-column: span 12;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+}
+.a365-project-tall {
+  grid-column: span 6;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+/* 가로 칸은 3:2로 고정하고 사진을 채운다 (세로 사진도 섞여 있어 원본처럼 칸 안에서 크롭). */
+.a365-project-wide { aspect-ratio: 3 / 2; }
+.a365 .a365-project-image { width: 100%; max-width: none; height: 100%; object-fit: cover; }
+.a365 .a365-project-image-tall { width: 100%; max-width: none; height: 100%; aspect-ratio: 1; object-fit: cover; }
+.a365-video-embed { position: relative; width: 100%; overflow: hidden; }
+.a365-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; border: 0; }
+.a365-next-label { grid-area: 1 / 4 / 2 / 6; }
+.a365-next-list { grid-area: 1 / 7 / 2 / 13; }
+
+/* ---------- 이담건축 추가 규칙 ---------- */
+.a365-big-heading.a365-big-heading-long { font-size: 7svw; }
+.a365 strong { font-weight: 500; }
+.a365-news-text { color: #000000b3; }
+
+/* 문의 폼 */
+.a365-form-label { display: block; color: #ffffff99; font-size: 0.9rem; line-height: 130%; margin-bottom: 0.25rem; }
+.a365-phone-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.a365-phone-row .a365-field { min-width: 0; }
+.a365 .a365-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+.a365 .a365-select:invalid { color: #999; }
+.a365 .a365-select option { color: #000; background: #fff; }
+.a365-check { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; cursor: pointer; }
+.a365-check input { width: 18px; height: 18px; margin-top: 3px; accent-color: #fff; flex: none; }
+.a365-check .a365-standard { max-width: none; font-size: 0.9rem; }
+.a365 .a365-submit { margin-top: 0.5rem; }
+
+/* 자주 묻는 질문 */
+.a365-faq-answer { padding: 1rem 0 2.5rem; }
+.a365-dropdown-header .a365-medium { margin-bottom: -0.2rem; }
+
+/* 개인정보처리방침 */
+.a365-info-container.a365-privacy { grid-area: 1 / 4 / 2 / 11; gap: 1.5rem; }
+.a365-privacy-section { display: flex; flex-direction: column; gap: 1rem; padding-top: 2rem; border-top: 1px solid var(--black-10); }
+.a365-privacy-title { display: flex; gap: 1rem; align-items: baseline; }
+.a365-privacy-title h2 { margin: 0; }
+.a365-privacy-p { margin: 0; }
+.a365-privacy-h { font-weight: 500; }
+.a365-privacy-list { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.a365-privacy-list li { list-style: disc; }
+.a365-privacy-ol li { list-style: decimal; }
+.a365-privacy-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.a365-privacy-table th, .a365-privacy-table td { text-align: left; vertical-align: top; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--black-10); }
+.a365-privacy-table th { font-weight: 500; border-bottom-color: var(--black-100); }
+.a365-privacy-info { margin: 0; display: flex; flex-direction: column; }
+.a365-privacy-info-row { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--black-10); }
+.a365-privacy-info dd { margin: 0; }
+
+/* 상세 페이지 건축 개요 표 */
+.a365-spec-row { justify-content: flex-start; gap: 1rem; }
+.a365-spec-label { flex: 0 0 5.5rem; color: #00000099; }
+
+/* ---------- hero ---------- */
+.a365-hero { position: relative; }
+.a365-container.a365-hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100svh;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+.a365-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+.a365-hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.a365-hero-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: #0000004d;
+  animation: a365-fade-in 1s var(--ease) both;
+}
+.a365-hero-heading { animation: a365-hero-title 1s var(--ease) both; }
+.a365-hero-grid { animation: a365-hero-grid 1s var(--ease) 0.2s both; }
+.a365-scroll-arrow { width: 24px; height: 24px; overflow: hidden; }
+.a365-scroll-arrow img { width: 24px; height: 24px; animation: a365-arrow 2.2s var(--ease) infinite; }
+@keyframes a365-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes a365-hero-title { from { transform: translate3d(0, 72px, 0); } to { transform: none; } }
+@keyframes a365-hero-grid { from { opacity: 0; transform: translate3d(0, 120px, 0); } to { opacity: 1; transform: none; } }
+@keyframes a365-arrow {
+  0%, 20% { transform: translateY(0); }
+  60% { transform: translateY(100%); }
+  60.01% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a365-hero-mask, .a365-hero-heading, .a365-hero-grid, .a365-scroll-arrow img { animation: none; }
+}
+
+/* ---------- section header ---------- */
+.a365-section-header-block { margin-bottom: 4rem; }
+.a365-section-header { border-bottom: 1px solid var(--black-10); padding-bottom: 0.75rem; }
+
+/* ---------- work ---------- */
+.a365-collection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 4rem 1rem;
+}
+.a365-work-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.a365-thumb-wrap { width: 100%; overflow: hidden; }
+.a365-thumb {
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s var(--ease);
+}
+.a365-work-link:hover .a365-thumb,
+.a365-blog-link:hover .a365-thumb { transform: scale(1.1); }
+.a365-work-link:hover .a365-ul-hidden { transform: translateX(0); }
+.a365-name-wrap { overflow: hidden; }
+
+/* ---------- service / dropdown ---------- */
+.a365-dropdown-list { display: flex; flex-direction: column; }
+.a365-dropdown-item { border-top: 1px solid var(--black-10); }
+.a365-dropdown-header {
+  cursor: pointer;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.a365-dropdown-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.5s var(--ease);
+}
+.a365-dropdown-item.is-open .a365-dropdown-icon { transform: rotate(45deg); }
+.a365-dropdown-content { display: none; }
+.a365-dropdown-item.is-open .a365-dropdown-content {
+  display: block;
+  animation: a365-dropdown-in 0.6s var(--ease) both;
+}
+@keyframes a365-dropdown-in {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.a365-service-image-block { padding-top: 2rem; }
+.a365-service-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+}
+.a365-service-images img { width: 100%; height: auto; }
+.a365-dropdown-text { padding-top: 4rem; padding-bottom: 8rem; }
+.a365-divider { width: 100%; height: 1px; background: var(--black-10); }
+.a365-tool-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--black-10);
+}
+.a365-dot { width: 6px; height: 6px; border-radius: 20px; background: var(--black-100); }
+
+/* ---------- parallax ---------- */
+.a365-parallax {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+}
+.a365-parallax img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform: scale(var(--a365-parallax-scale, 1.2));
+}
+
+/* ---------- inside ---------- */
+.a365-blog-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+}
+.a365-blog-link { display: flex; flex-direction: column; gap: 0.5rem; text-decoration: none; }
+
+/* ---------- footer ---------- */
+.a365-top-divider { border-top: 1px solid var(--black-10); }
+.a365-footer-content { display: flex; flex-direction: column; gap: 12rem; }
+.a365-footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: -0.5rem;
+}
+.a365-social-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--black-10);
+  text-decoration: none;
+}
+.a365-social-arrow { width: 16px; height: 16px; }
+.a365-bottom-bar { border-top: 1px solid var(--black-10); margin-top: 1rem; padding: 1rem 0; }
+.a365-bottom-links { display: flex; gap: 2rem; }
+
+/* ================= ≤991 ================= */
+@media screen and (max-width: 991px) {
+  .a365-medium { font-size: 1.8rem; }
+  .a365-tabs { display: flex; flex-direction: column; }
+  /* Webflow .w-tabs::before/::after clearfix pseudo-elements become flex items here, so the 16px gap appears above and below the content. */
+  .a365-tabs::before, .a365-tabs::after { content: ""; display: block; }
+  .a365-tabs-menu { padding-top: 0; }
+  .a365-wl-button { display: none; }
+  .a365-tab-pane-list { border-top: 1px solid var(--black-10); }
+  .a365-work-list-grid { grid-template-columns: repeat(8, 1fr); }
+  .a365-tab-pane-grid { padding-top: 0; }
+  .a365-container.a365-container-page-heading { padding-bottom: 10rem; }
+  .a365-contact-info { order: -9999; grid-area: 1 / 1 / 2 / 13; }
+  .a365-map-box { order: -9999; grid-area: 2 / 1 / 3 / 13; }
+  .a365-contact-form-wrap { order: 9999; grid-area: 3 / 1 / 4 / 13; }
+  .a365-container { padding-bottom: 10rem; }
+  .a365-logo { height: 24px; }
+  .a365-large { font-size: 2rem; }
+  .a365-dropdown-text { padding-bottom: 4rem; }
+  .a365-blog-list { grid-template-columns: 1fr 1fr; row-gap: 4rem; }
+  .a365-footer-content { gap: 8rem; }
+  .a365-hero-heading { line-height: 100%; }
+}
+
+/* ================= ≤767 ================= */
+@media screen and (max-width: 767px) {
+  .a365-tabs-menu { display: none; }
+  /* 손가락으로 누르기 쉽도록 작은 텍스트 링크의 세로 여백을 키운다 (밑줄 위치는 그대로). */
+  .a365-contact-block .a365-link,
+  .a365-bottom-links .a365-link,
+  .a365-f-studio.a365-link,
+  .a365-about-body .a365-link,
+  .a365-sh-link.a365-link { padding: 0.45rem 0; }
+  .a365-social-link, .a365-mobile-social-link { padding: 0.75rem 0; }
+  .a365-hero-heading { font-size: 14vw; }
+  .a365-container.a365-container-page-heading { padding-bottom: 5rem; }
+  .a365-form-block { padding: 1rem; }
+  .a365-container { padding-bottom: 4rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+  .a365-grid { gap: 0.75rem; }
+  .a365-hero-heading { font-size: 17vw; }
+  .a365-standard, .a365-standard-white { font-size: 0.9rem; }
+  .a365-standard-nav { font-size: 1rem; }
+  .a365-nav-col1, .a365-nav-col2 { padding: 0.75rem; }
+  .a365-logo { height: 22px; }
+  .a365-small-heading { font-size: 0.9rem; }
+  .a365-large-indent { text-indent: 0; }
+  .a365-gap-4 { gap: 2rem; }
+  .a365-gap-6 { gap: 3rem; }
+  .a365-gap-2 { gap: 1rem; }
+  .a365-collection { grid-template-columns: 1fr; row-gap: 3rem; }
+  .a365-service-image-block { padding-bottom: 2rem; }
+  .a365-footer-content { gap: 4rem; }
+  .a365-serif, .a365-serif-pad { font-size: 0.9rem; }
+}
+
+/* ================= ≤479 ================= */
+@media screen and (max-width: 479px) {
+  .a365-medium { text-indent: 0; font-size: 1.5rem; font-weight: 500; line-height: 120%; }
+  .a365-work-list-grid { grid-template-columns: repeat(4, 1fr); }
+  .a365-nav-dark .a365-nav-grid { background: var(--white-100); }
+  .a365-nav-dark .a365-standard-nav { color: var(--white-100); }
+  .a365-grid.a365-grid-biggap.a365-contact-grid { row-gap: 0.75rem; }
+  .a365-map-box { margin-top: 20px; }
+  .a365-form-block { padding: 0.75rem; }
+  .a365-field { min-height: 3rem; margin-bottom: 1rem; padding-top: 0.5rem; font-size: 1rem; line-height: 130%; }
+  .a365-textarea { min-height: 8rem; font-size: 1rem; line-height: 130%; }
+  .a365-submit { font-size: 1rem; }
+  .a365-container { padding-bottom: 5rem; }
+  .a365-container.a365-container-mobile-padding { padding-top: 1.5rem; }
+  .a365-container.a365-container-padding-top { padding-top: 2rem; }
+  .a365-grid { grid-template-columns: repeat(4, 1fr); row-gap: 0.75rem; }
+  .a365-hero-heading { font-size: 16vw; line-height: 100%; }
+  .a365-standard-white { font-size: 1rem; }
+  .a365-standard-nav { font-size: 17svw; font-weight: 400; line-height: 100%; }
+  .a365-standard-none { display: none; }
+  .a365-nav-grid { display: flex; justify-content: space-between; align-items: center; }
+  .a365-nav-col2 {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 4rem 0.75rem 0.75rem;
+    background: #000;
+    overflow: visible;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.6s var(--ease);
+  }
+  .a365-nav.is-open .a365-nav-col2 { transform: none; }
+  .a365-nav-menu { flex-direction: column; }
+  .a365-nav-links { flex-direction: column; gap: 0; }
+  .a365-nav-copy { display: none; }
+  .a365-menu-button {
+    display: block;
+    position: relative;
+    z-index: 3;
+    height: 1.2rem;
+    margin-right: 0.75rem;
+    overflow: hidden;
+    mix-blend-mode: difference;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  .a365-menu-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s var(--ease);
+  }
+  .a365-menu-text-wrapper .a365-standard {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    padding-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+  }
+  .a365-nav.is-open .a365-menu-text-wrapper { transform: translateY(-1.2rem); }
+  .a365-mobile-social { display: block; }
+  .a365-mobile-social-list { margin-top: 0.5rem; margin-bottom: 2rem; }
+  .a365-mobile-social-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--white-15);
+    text-decoration: none;
+  }
+  .a365-large { text-indent: 0; font-size: 1.5rem; line-height: 120%; }
+  .a365-gap-4, .a365-gap-6 { gap: 2rem; }
+  .a365-big-heading { font-size: 12svw; }
+  .a365-section-header-block { margin-bottom: 3rem; }
+  .a365-collection { row-gap: 2rem; }
+  .a365-mobile-hidden { display: none; }
+  .a365-dropdown-icon { width: 20px; height: 20px; }
+  .a365-service-images { display: flex; flex-direction: column; }
+  .a365-dropdown-header { padding: 1rem 0; }
+  .a365-service-image-block { padding-top: 1rem; }
+  .a365-dropdown-text { padding-top: 2rem; }
+  .a365-parallax { aspect-ratio: 16 / 9; }
+  .a365-blog-list { grid-template-columns: 1fr; row-gap: 3rem; }
+  .a365-footer-content { gap: 6rem; }
+  .a365-bottom-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .a365-serif-white { font-size: 0.9rem; }
+}
+
+/* ================= grid placements (from source #w-node rules) ================= */
+/* hero bottom grid */
+.a365-hero-since { grid-area: 1 / 1 / 2 / 3; align-self: end; }
+.a365-hero-text { grid-area: 1 / 4 / 2 / 7; }
+.a365-hero-arrow { grid-area: 1 / 12 / 2 / 13; place-self: end; }
+/* about */
+.a365-about-lead { grid-area: 1 / 1 / 2 / 13; }
+.a365-about-heading { grid-area: 1 / 1 / 2 / 3; }
+.a365-about-body { grid-area: 1 / 7 / 2 / 10; }
+/* section headers (work / inside) */
+.a365-sh-title { grid-area: 1 / 1 / 2 / 6; }
+.a365-sh-years { grid-area: 1 / 7 / 2 / 9; align-self: end; }
+.a365-sh-link { grid-area: 1 / 11 / 2 / 13; place-self: end; }
+.a365-sh-lead { grid-area: 1 / 7 / 2 / 12; }
+/* dropdown header */
+.a365-dd-title { grid-area: 1 / 4 / 2 / 11; }
+.a365-dd-icon { grid-area: 1 / 11 / 2 / 13; place-self: center end; }
+/* dropdown content */
+.a365-dd-images { grid-area: 1 / 4 / 2 / 8; }
+.a365-dd-copy { grid-area: 1 / 4 / 2 / 8; }
+.a365-dd-tools { grid-area: 1 / 10 / 2 / 13; }
+/* footer */
+.a365-f-logo { grid-area: 1 / 1 / 2 / 3; }
+.a365-f-links { grid-area: 1 / 4 / 2 / 7; }
+.a365-f-social { grid-area: 1 / 10 / 2 / 13; }
+.a365-f-cta { grid-area: 1 / 4 / 2 / 13; justify-self: start; }
+.a365-f-studio { grid-area: 1 / 1 / 2 / 3; justify-self: start; }
+.a365-f-legal { grid-area: 1 / 4 / 2 / 8; }
+.a365-f-copy { grid-area: 1 / 11 / 2 / 13; justify-self: end; }
+
+@media screen and (max-width: 991px) {
+  /* Source keeps 12 columns here but places everything in the first 8 (#w-node rules). */
+  .a365-hero-arrow { grid-column: 8 / 9; }
+  .a365-about-lead { grid-column-end: 9; }
+  .a365-about-body { grid-column: 4 / 9; }
+  .a365-sh-title { grid-column-end: 4; }
+  .a365-sh-years { grid-column: 5 / 7; }
+  .a365-sh-link { grid-column: 7 / 9; }
+  .a365-sh-lead { grid-column: 5 / 9; }
+  .a365-dd-images { grid-column: 1 / 9; }
+  .a365-dd-copy { grid-column: 1 / 5; }
+  .a365-dd-tools { grid-column: 6 / 9; }
+  .a365-f-links { grid-column: 3 / 5; }
+  .a365-f-social { grid-column: 6 / 9; }
+  .a365-f-cta { grid-column: 3 / 9; }
+  .a365-f-legal { grid-column: 3 / 8; }
+  .a365-f-copy { grid-column: 8 / 9; }
+  .a365-info-container { grid-column-start: 3; }
+  .a365-info-container.a365-privacy { grid-column: 1 / 9; }
+  .a365-gap-8 { gap: 6rem; }
+  .a365-po-info { grid-column: 4 / 9; }
+  .a365-pd-services { grid-column-end: 9; }
+  .a365-pd-text { grid-area: 2 / 1 / 3 / 9; }
+  .a365-next-label { grid-column: 1 / 3; }
+  .a365-next-list { grid-column: 3 / 9; }
+}
+@media screen and (max-width: 767px) {
+  /* 한글은 480~767px 구간에서 1칸짜리 번호·연도 칸이 "0/2"처럼 꺾이므로 이 구간부터 숨긴다 (원본은 479px부터). */
+  .a365-mobile-hidden { display: none; }
+  .a365-sh-title { grid-column: 1 / 9; }
+  .a365-sh-link { grid-area: 2 / 5 / 3 / 9; justify-self: end; }
+  .a365-dd-title { grid-column: 1 / 11; }
+  .a365-dd-icon { grid-column: 11 / 13; }
+  /* 아코디언 본문: 480~767px에서는 설명과 세부 항목을 위아래로 쌓는다 (4칸짜리 본문 열은 한글이 너무 좁게 꺾임). */
+  .a365-dd-images { grid-column: 1 / 13; }
+  .a365-dd-copy { grid-column: 1 / 13; }
+  .a365-dd-tools { grid-area: 2 / 1 / 3 / 13; }
+  .a365-info-container { grid-column: 1 / 8; }
+  .a365-info-container.a365-privacy { grid-column: 1 / 13; }
+  .a365-phone-row { gap: 0.75rem; }
+  .a365-gap-8 { gap: 3rem; }
+  .a365-project-overview { border-bottom-style: none; padding-bottom: 0; }
+  .a365-po-year { grid-column-end: 9; }
+  .a365-po-info { grid-area: 2 / 1 / 3 / 9; }
+  .a365-project-info { display: flex; flex-direction: column; gap: 0; }
+  .a365-project-info-item { flex-direction: row; justify-content: space-between; padding: 0.5rem 0; border-top: 1px solid var(--black-10); }
+  .a365-pd-lead { grid-column-end: 9; }
+  .a365-about-lead { grid-row: 2 / 3; }
+  .a365-about-heading { grid-column-end: 9; }
+  .a365-about-body { grid-column-start: 1; }
+  .a365-sh-lead { grid-column-start: 1; }
+  .a365-f-logo { grid-column-end: 9; }
+  .a365-f-links { grid-row: 2 / 3; grid-column-start: 1; }
+  .a365-f-social { grid-row: 2 / 3; }
+  .a365-f-cta { grid-column-start: 1; }
+  .a365-f-studio { grid-row: 2 / 3; grid-column-end: 5; }
+  .a365-f-legal { grid-column: 1 / 9; }
+  .a365-f-copy { grid-row: 2 / 3; grid-column-start: 5; }
+}
+@media screen and (max-width: 479px) {
+  .a365-info-container { grid-column: 1 / 5; }
+  .a365-info-container.a365-privacy { grid-column: 1 / 5; }
+  .a365-privacy-info-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .a365-big-heading.a365-big-heading-long { font-size: 10svw; }
+  .a365-work-title { font-size: 11svw; line-height: 110%; }
+  .a365-po-year { grid-column: 1 / 5; }
+  .a365-po-info { grid-column: 1 / 5; }
+  .a365-pd-lead { grid-column: 1 / 5; }
+  .a365-pd-services { grid-column: 1 / 5; }
+  .a365-pd-text { grid-column: 1 / 5; }
+  .a365-project-wide { grid-column: span 4; }
+  .a365-project-tall { grid-column: span 2; }
+  .a365-next-label { grid-column: 1 / 5; }
+  .a365-next-list { grid-area: 2 / 1 / 3 / 5; }
+  .a365-hero-since { grid-area: 2 / 1 / 3 / 2; white-space: nowrap; }
+  .a365-hero-text { grid-area: 1 / 1 / 2 / 5; }
+  .a365-hero-arrow { grid-area: 2 / 4 / 3 / 5; }
+  .a365-about-lead { grid-row: 2 / 3; grid-column: 1 / 5; }
+  .a365-about-heading { grid-column: 1 / 5; }
+  .a365-about-body { grid-column: 1 / 5; }
+  .a365-sh-title { grid-column: 1 / 5; }
+  .a365-sh-link { grid-area: 2 / 3 / 3 / 5; }
+  .a365-sh-lead { grid-column: 1 / 5; }
+  .a365-dd-title { grid-column: 1 / 4; }
+  .a365-dd-icon { grid-column: 4 / 5; }
+  .a365-dd-images { grid-column: 1 / 5; }
+  .a365-dd-copy { grid-column: 1 / 5; }
+  .a365-dd-tools { grid-area: 2 / 1 / 3 / 5; }
+  .a365-f-logo { grid-column: 1 / 5; }
+  .a365-f-links { grid-column: 1 / 5; }
+  .a365-f-social { grid-area: 3 / 1 / 4 / 5; }
+  .a365-f-cta { grid-column: 1 / 5; }
+  .a365-f-studio { grid-area: 2 / 1 / 3 / 3; }
+  .a365-f-legal { grid-area: 1 / 1 / 2 / 5; }
+  .a365-f-copy { grid-area: 2 / 3 / 3 / 5; justify-self: start; }
+}
+
+/* Source IX2 hover: work thumbnails scale 1.1, blog thumbnails (home Inside grid + /inside list) scale 1.15. */
+.a365-blog-link:hover .a365-thumb { transform: scale(1.15); }
+
+/* 문의 폼: 검증 메시지 · 허니팟 */
+.a365-field.is-invalid, .a365-textarea.is-invalid { border-bottom-color: #ff6b6b; }
+.a365-field-error { color: #ff8a8a; font-size: 0.85rem; line-height: 130%; margin: -1rem 0 1.25rem; }
+.a365-textarea + .a365-field-error { margin-top: -1.5rem; }
+.a365-check + .a365-field-error { margin-top: -0.5rem; }
+.a365-hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }

@@ -1,0 +1,89 @@
+/* a365.at/inside — page-specific rules (shared primitives live in a365.css). */
+.a365-news-heading { grid-area: 1 / 1 / 2 / 7; }
+.a365-news-lead { grid-area: 1 / 7 / 2 / 13; }
+.a365-blog-list.a365-blog-list-2 { grid-template-columns: 1fr 1fr; row-gap: 6rem; }
+.a365-news-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--black-10);
+}
+.a365-dot.a365-dot-small { width: 4px; height: 4px; }
+
+@media screen and (max-width: 991px) {
+  .a365-blog-list.a365-blog-list-2 { grid-template-columns: 1fr 1fr; row-gap: 4rem; }
+}
+@media screen and (max-width: 479px) {
+  .a365-news-heading { grid-column-end: 5; }
+  .a365-news-lead { grid-area: 2 / 1 / 3 / 5; }
+  .a365-blog-list.a365-blog-list-2 { grid-template-columns: 1fr; row-gap: 3rem; }
+}
+
+.a365-news-title { font-weight: 500; }
+/* 원본 inside 카드 비율(12:7). 사진 원본 비율이 제각각이라 카드에서는 항상 같은 틀로 자른다. */
+.a365 .a365-thumb-3-2 { aspect-ratio: 12 / 7; object-fit: cover; height: auto; width: 100%; }
+/* 상세 상단 사진: 원본 상세처럼 16:9 한 틀로 고정 */
+.a365-post-hero.a365-parallax { aspect-ratio: 16 / 9; }
+.a365-post-hero.a365-parallax img { height: 100%; object-fit: cover; }
+
+/* ---------- 현장 소식 상세 (원본 a365 뉴스 상세 구조) ---------- */
+.a365-post-title {
+  color: var(--black-100);
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding-top: 1vw;
+  font-size: 5svw;
+  font-weight: 400;
+  line-height: 100%;
+}
+.a365-container.a365-container-news { padding-bottom: 8rem; }
+.a365-news-info { border-bottom: 1px solid var(--black-10); padding-bottom: 1rem; }
+.a365-author { grid-area: 1 / 1 / 2 / 4; display: flex; align-items: center; gap: 0.5rem; }
+.a365-author-image { width: 48px; height: 48px; object-fit: contain; }
+.a365-news-catdate { grid-area: 1 / 7 / 2 / 10; place-self: end start; display: flex; align-items: center; gap: 0.5rem; }
+.a365-news-arrow { grid-area: 1 / 12 / 2 / 13; place-self: end; }
+.a365-news-arrow img { animation: a365-arrow 2.2s var(--ease) infinite; }
+.a365-post-hero.a365-parallax { aspect-ratio: 16 / 9; }
+.a365-post-hero.a365-parallax img { height: 100%; object-fit: cover; }
+.a365-news-body { padding-top: 3rem; }
+.a365-news-rich { grid-area: 1 / 7 / 2 / 11; }
+/* 본문 (원본 .rich-text) */
+.a365-rich h2 { color: var(--black-100); margin: 0 0 0.5rem; font-size: 2rem; font-weight: 500; line-height: 110%; letter-spacing: -0.02em; }
+.a365-rich p { color: var(--black-100); margin: 0 0 4rem; font-size: 1rem; line-height: 130%; }
+.a365-rich h2 + p { font-size: 1.2rem; }
+.a365-rich-figure { margin: 0 0 4rem; }
+.a365-rich-figure img { width: 100%; height: auto; aspect-ratio: 12 / 7; object-fit: cover; display: block; }
+.a365-rich .a365-rich-caption { color: #00000099; font-size: 0.9rem; margin: 0.75rem 0 4rem; }
+.a365-rich .a365-rich-figure .a365-rich-caption { margin-bottom: 0; }
+.a365-container.a365-container-post-site { padding-bottom: 8rem; }
+.a365-collection.a365-collection-single { grid-template-columns: 1fr 1fr; }
+.a365-more-label { grid-area: 1 / 4 / 2 / 7; }
+.a365-more-list { grid-area: 1 / 7 / 2 / 13; }
+
+@media screen and (max-width: 991px) {
+  .a365-container.a365-container-news { padding-bottom: 4rem; }
+  .a365-news-catdate { grid-column: 5 / 8; }
+  .a365-news-arrow { grid-column: 8 / 9; }
+  .a365-news-rich { grid-column: 1 / 9; }
+  .a365-rich p, .a365-rich-figure { margin-bottom: 3rem; }
+  .a365-rich h2 { font-size: 1.6rem; }
+  .a365-more-label { grid-column: 1 / 9; }
+  .a365-more-list { grid-area: 2 / 1 / 3 / 9; }
+}
+@media screen and (max-width: 767px) {
+  .a365-collection.a365-collection-single { grid-template-columns: 1fr; }
+  .a365-container.a365-container-post-site { padding-bottom: 4rem; }
+}
+@media screen and (max-width: 479px) {
+  .a365-post-title { font-size: 8svw; line-height: 110%; }
+  .a365-author { grid-column-end: 5; }
+  .a365-news-catdate { grid-area: 2 / 1 / 3 / 5; }
+  .a365-news-arrow { display: none; }
+  .a365-news-body { padding-top: 1rem; }
+  .a365-news-rich { grid-column: 1 / 5; }
+  .a365-rich h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .a365-more-label { grid-column: 1 / 5; }
+  .a365-more-list { grid-area: 2 / 1 / 3 / 5; }
+}
