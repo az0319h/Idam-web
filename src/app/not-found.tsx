@@ -4,7 +4,8 @@ import { UnderlineLink } from "@/components/sites/a365/UnderlineLink";
 import { brand, contactLink } from "@/components/sites/a365/data";
 
 export const metadata: Metadata = {
-  title: "페이지를 찾을 수 없습니다 - 이담건축",
+  title: "페이지를 찾을 수 없습니다",
+  robots: { index: false },
 };
 
 export default function NotFound() {

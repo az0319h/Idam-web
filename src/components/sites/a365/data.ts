@@ -312,7 +312,7 @@ export interface ContactBlock {
 }
 
 export const contact = {
-  title: "견적 문의 - 이담건축",
+  title: "견적 문의",
   heading: "견적 문의",
   blocks: [
     {
@@ -366,13 +366,13 @@ export const contact = {
 };
 
 export const workPage = {
-  title: "건축 작품 - 이담건축",
+  title: "건축 작품",
   heading: "건축 작품",
   tabs: { grid: "격자", list: "목록" },
   detail: "자세히 보기",
 };
 
 export const privacy = {
-  title: "개인정보처리방침 - 이담건축",
+  title: "개인정보처리방침",
   heading: "개인정보처리방침",
 };

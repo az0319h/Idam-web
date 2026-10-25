@@ -18,7 +18,7 @@ export interface ScopeItem {
 }
 
 export const aboutPage = {
-  title: "회사 소개 - 이담건축",
+  title: "회사 소개",
   heading: "회사 소개",
   intro: {
     heading: "이담건축",

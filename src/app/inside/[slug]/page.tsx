@@ -18,8 +18,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = postBySlug(slug);
-  if (!post) return { title: "현장 소식 - 이담건축" };
-  return { title: `${post.title} - 이담건축`, description: post.look };
+  if (!post) return { title: "현장 소식" };
+  const url = `/inside/${post.slug}`;
+  return {
+    title: post.title,
+    description: post.look,
+    alternates: { canonical: url },
+    openGraph: { type: "article", description: post.look, url, images: [{ url: post.hero.src, alt: post.hero.caption }] },
+    twitter: { card: "summary_large_image", description: post.look, images: [post.hero.src] },
+  };
 }
 
 export default async function PostRoute({ params }: Props) {
