@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" fill="none">
+  <!-- B. 담(墻) 마크: 쌓인 벽체 층 + 문 틈. 단면도처럼 읽힘 -->
+  <g fill="currentColor">
+    <rect x="24" y="24" width="112" height="22"/>
+    <rect x="24" y="58" width="112" height="22"/>
+    <rect x="24" y="92" width="72" height="22"/>
+    <rect x="24" y="126" width="72" height="10"/>
+    <rect x="108" y="92" width="28" height="44"/>
+  </g>
+  <text x="184" y="106" font-family="'Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="currentColor">이담건축</text>
+</svg>
