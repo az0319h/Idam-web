@@ -55,6 +55,7 @@
 .a365-rich h2 + p { font-size: 1.2rem; }
 .a365-rich-figure { margin: 0 0 4rem; }
 .a365-rich-figure img { width: 100%; height: auto; aspect-ratio: 12 / 7; object-fit: cover; display: block; }
+.a365-post-ai-note { color: #00000099; font-size: 0.8rem; line-height: 1.4; margin: 0.75rem 0 0; text-align: right; }
 .a365-rich .a365-rich-caption { color: #00000099; font-size: 0.9rem; margin: 0.75rem 0 4rem; }
 .a365-rich .a365-rich-figure .a365-rich-caption { margin-bottom: 0; }
 .a365-container.a365-container-post-site { padding-bottom: 8rem; }

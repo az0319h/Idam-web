@@ -53,6 +53,7 @@ export function PostPage({ post }: { post: SitePost }) {
               </div>
 
               <ParallaxImage bare className="a365-post-hero" image={post.hero.src} width={2048} height={1360} alt={post.hero.caption} />
+              <p className="a365-post-ai-note">원본 현장 사진을 AI로 재구성한 이미지입니다.</p>
 
               <div className="a365-news-body">
                 <div className="a365-grid">
