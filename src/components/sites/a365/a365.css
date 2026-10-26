@@ -46,7 +46,7 @@
   color: var(--black-100);
   margin-bottom: -3px;
   padding-top: 3px;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 130%;
 }
@@ -56,7 +56,7 @@
   color: var(--black-100);
   letter-spacing: -0.02em;
   font-family: var(--font-alpina), "Freesentation", sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   font-style: italic;
   line-height: 100%;
@@ -78,7 +78,7 @@
   color: var(--black-100);
   margin: 0;
   padding-top: 3px;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 120%;
 }
@@ -603,11 +603,11 @@
   .a365-container { padding-bottom: 4rem; padding-left: 0.75rem; padding-right: 0.75rem; }
   .a365-grid { gap: 0.75rem; }
   .a365-hero-heading { font-size: 17vw; }
-  .a365-standard, .a365-standard-white { font-size: 0.9rem; }
+  .a365-standard, .a365-standard-white { font-size: 1.125rem; }
   .a365-standard-nav { font-size: 1rem; }
   .a365-nav-col1, .a365-nav-col2 { padding: 0.75rem; }
   .a365-logo { height: 22px; }
-  .a365-small-heading { font-size: 0.9rem; }
+  .a365-small-heading { font-size: 1.125rem; }
   .a365-large-indent { text-indent: 0; }
   .a365-gap-4 { gap: 2rem; }
   .a365-gap-6 { gap: 3rem; }
@@ -615,7 +615,7 @@
   .a365-collection { grid-template-columns: 1fr; row-gap: 3rem; }
   .a365-service-image-block { padding-bottom: 2rem; }
   .a365-footer-content { gap: 4rem; }
-  .a365-serif, .a365-serif-pad { font-size: 0.9rem; }
+  .a365-serif, .a365-serif-pad { font-size: 1.125rem; }
 }
 
 /* ================= ≤479 ================= */
