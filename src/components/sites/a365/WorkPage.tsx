@@ -63,7 +63,7 @@ export function WorkTabs() {
                           <div className="a365-medium a365-wl-name">{item.name}</div>
                           <div className="a365-thumb-wrap a365-wl-thumb">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={item.image} alt="" width={item.width} height={item.height} loading="lazy" className="a365-thumb" />
+                            <img src={item.image} alt={`${item.name} 대표 사진`} width={item.width} height={item.height} loading="lazy" className="a365-thumb" />
                           </div>
                           <div className="a365-wl-button">
                             <div className="a365-standard">{workPage.detail}</div>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" fill="none">
+  <!-- A. 이담 모노그램: ㅇ(원) + ㄷ(반원 블록) + 문(門) 슬릿 -->
+  <g fill="currentColor">
+    <circle cx="80" cy="80" r="56"/>
+    <path d="M160 24h60c30.9 0 56 25.1 56 56s-25.1 56-56 56h-60V24z"/>
+    <rect x="128" y="68" width="48" height="24" fill="var(--bg,#000)"/>
+  </g>
+  <text x="320" y="106" font-family="'Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="currentColor">이담건축</text>
+</svg>

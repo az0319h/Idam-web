@@ -18,7 +18,7 @@ export interface ScopeItem {
 }
 
 export const aboutPage = {
-  title: "회사 소개 - 이담건축",
+  title: "회사 소개",
   heading: "회사 소개",
   intro: {
     heading: "이담건축",
@@ -53,7 +53,7 @@ export const aboutPage = {
       { number: "06", name: "증축·개축·리모델링", category: "소규모 개선부터 구조 보강까지", href: "", year: "" },
     ] satisfies ScopeItem[],
   },
-  /** 하단 전폭 사진. 생성 이미지가 준비되면 /sites/idam/about-wide.png 로 교체. */
+  /** 하단 전폭 사진 */
   parallaxBottom: { image: "/sites/idam/about-finish.jpg", width: 1536, height: 896, alt: "마감 공사 중인 실내: 우물천장 매립등, 벽걸이 에어컨, 알루미늄 사다리" },
 };
 

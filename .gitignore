@@ -56,3 +56,18 @@ idamstudio-web/
 
 # Agent/design iteration artifacts (not served by the app)
 public/generated/
+
+# 예전 이담 사이트 소스 (자체 git 저장소, 참고용)
+idamstudio-web/
+
+# 조사·검증용 스크린샷 (용량이 커서 저장소에서 제외, 문서와 데이터는 유지)
+docs/research/**/*.png
+docs/research/**/*.jpg
+
+# 생성·검증 중간 산출물 (사이트에서 참조하지 않음)
+public/generated/
+
+# a365 원본 에셋: 사이트는 아이콘만 사용
+public/sites/a365/*
+!public/sites/a365/icons/
+public/sites/a365/icons/a365-logo-*.svg

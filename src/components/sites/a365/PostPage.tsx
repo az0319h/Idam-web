@@ -34,7 +34,7 @@ export function PostPage({ post }: { post: SitePost }) {
                 <div className="a365-grid">
                   <div className="a365-author">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={brand.logoBlack} alt="" width={48} height={48} className="a365-author-image" />
+                    <img src="/sites/idam/icons/favicon.png" alt="" width={252} height={256} className="a365-author-image" />
                     <div className="a365-vflex">
                       <div className="a365-standard">{brand.name}</div>
                       <div className="a365-standard a365-news-text">{brand.tagline}</div>

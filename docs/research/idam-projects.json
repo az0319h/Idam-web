@@ -1,0 +1,153 @@
+{
+ "projects": {
+  "-OaI3hAxGtRfe4PGMBJ4": {
+   "completionDate": "2024-10",
+   "createdAt": "2025-09-29T01:25:08.477Z",
+   "description": "경기도 동두천시에 새롭게 완공된 이 단독주택은 2024년 준공을 맞이하여,  전원주택 스타일로 설계되었습니다. 목조 구조의 따뜻한 감성을 바탕으로,  지상 2층 규모(132.2㎡)의 주거 공간은 가족이 함께 살아가는 데 충분한 안락함과 여유로움을 제공합니다.",
+   "exterior": [
+    "세라믹 사이딩",
+    "클래딩 사이딩"
+   ],
+   "features": [
+    "목조 구조의 따뜻한 외관",
+    "넓은 데크 및 마당 연결",
+    "다채로운 외장재 조합"
+   ],
+   "floors": "지상 2층",
+   "id": "-OaI3hAxGtRfe4PGMBJ4",
+   "interior": [
+    "원목 마루"
+   ],
+   "location": "경기도 동두천시",
+   "mainImage": "https://res.cloudinary.com/dmtmnadim/image/upload/v1759108809/main_uvl0kr.jpg",
+   "siteArea": 132,
+   "subImages": [
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758036385/detail0_jfmef7.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758036385/detail1_ehrqdo.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758036385/detail2_ueargu.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758036385/detail3_olqafn.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758036385/detail4_vlirmc.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1758037537/detail5_xyisbf.jpg"
+   ],
+   "title": "동두천 목조 단독 주택",
+   "type": "목조(木造)",
+   "usage": "단독주택 (주거용)",
+   "year": 2024,
+   "youtubeUrl": ""
+  },
+  "-OaIKihwZc6SivhPEdl_": {
+   "completionDate": "2024-05",
+   "createdAt": "2025-09-29T02:39:31.196Z",
+   "description": "이 주택은 2024년 05월 경기도 연천군에 완공된 단층 경량 철골 주택(89㎡, 27평)입니다.모던한 외관과 깔끔한 마감의 실내로 쾌적한 주거 환경을 제공하며, 신혼부부·소규모 가족·세컨드 하우스에 적합한 실속 있는 전원주택입니다",
+   "exterior": [
+    "세라믹 사이딩",
+    "징크 판넬",
+    "클래딩 사이딩"
+   ],
+   "features": [
+    "단층 설계",
+    "에너지 절약형 단열 시공",
+    "효율적 동선",
+    "모던 전원주택 스타일"
+   ],
+   "floors": "지상 1층(단층)",
+   "id": "-OaIKihwZc6SivhPEdl_",
+   "interior": [
+    "친환경 마감재",
+    "장판 (PVC 바닥재)",
+    "실크 도배"
+   ],
+   "location": "경기도 연천군",
+   "mainImage": "https://res.cloudinary.com/dmtmnadim/image/upload/v1759111430/main1_zl3yzg.jpg",
+   "siteArea": 89,
+   "subImages": [
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113254/detail0_jnjbcl.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113254/detail1_t0vmda.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113254/detail2_bpils2.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113254/detail3_zbtpmt.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113259/detail4_monv37.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759113254/detail5_zej5ba.jpg"
+   ],
+   "title": "연천 27평 경량 철골 주택",
+   "type": "경량 철골 구조",
+   "usage": "단독주택 (주거용)",
+   "year": 2024,
+   "youtubeUrl": ""
+  },
+  "-OaJeujdMOsgxTsnsLaK": {
+   "completionDate": "2023-09",
+   "createdAt": "2025-09-29T08:51:42.697Z",
+   "description": "이 주택은 경기도 연천군에 2023년 준공된 경량 철골 2층 주택(약 89㎡, 30평)입니다. 철골 구조로 튼튼하고 안전하며, 외관은 세라믹 사이딩과 모던한 디자인으로 완성되었습니다. 실내는 화이트 톤 벽체와 원목 바닥재로 따뜻하고 쾌적한 분위기를 자아내며, 개방형 거실과 다락 공간을 통해 공간 활용성을 높였습니다.",
+   "exterior": [
+    "세라믹 사이딩",
+    "징크 판넬",
+    "클래딩 사이딩"
+   ],
+   "features": [
+    "경량 철골 구조",
+    "다락 구조",
+    "외장 디자인",
+    "전원주택형 설계"
+   ],
+   "floors": "복층 구조",
+   "id": "-OaJeujdMOsgxTsnsLaK",
+   "interior": [
+    "친환경 마감재",
+    "원목 바닥재",
+    "실크 도배"
+   ],
+   "location": "경기도 연천군",
+   "mainImage": "https://res.cloudinary.com/dmtmnadim/image/upload/v1759191988/main_gfddrf.jpg",
+   "siteArea": 89,
+   "subImages": [
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135053/detail0_uspe0f.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135052/detail1_gpwnpb.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135052/detail2_oq060t.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135052/detail3_xxha4t.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135057/detail4_rmbpwo.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759135053/detail5_c15jjp.jpg"
+   ],
+   "title": "연천 30평 경량 철골 주택",
+   "type": "경량 철골 구조",
+   "usage": "단독주택 (주거용)",
+   "year": 2023,
+   "youtubeUrl": ""
+  },
+  "-OaLEFn8biAcq9ef07M_": {
+   "completionDate": "2024-08",
+   "createdAt": "2025-09-29T16:10:07.433Z",
+   "description": "경기도 연천군 장탄리에 위치한 42평 규모의 경량 철골 주택으로, 단층 전원주택의 장점을 극대화하여 설계되었습니다. 전면부에는 대형 창호를 배치해 채광과 개방감을 확보했으며, 외부 세라믹 사이딩과 클레딩 마감으로 모던하면서도 따뜻한 분위기를 연출했습니다. 포치 공간은 가족 휴식 및 야외 활동을 위한 다목적 공간으로 활용되며, 실내는 목공 마감재를 중심으로 아늑하고 따뜻한 분위기를 조성했습니다.",
+   "exterior": [
+    "외부 세라믹 사이딩",
+    "클레딩 사이딩"
+   ],
+   "features": [
+    "모던 박스형 매스 디자인",
+    "대형 직사각형 창호를 통한 개방감 확보",
+    "블랙 & 우드톤의 대비를 활용한 외관 디자인"
+   ],
+   "floors": "지상 1층",
+   "id": "-OaLEFn8biAcq9ef07M_",
+   "interior": [
+    "목공 마감"
+   ],
+   "location": "경기도 연천군 장탄리",
+   "mainImage": "https://res.cloudinary.com/dmtmnadim/image/upload/v1759193553/main_vv9f2n.jpg",
+   "siteArea": 139,
+   "subImages": [
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161475/last_detail0_lx87da.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161475/last_detail1_s8jrf2.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161475/last_detail2_a6reah.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161482/last_detail3_sspcud.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161476/last_detail4_nn9dea.jpg",
+    "https://res.cloudinary.com/dmtmnadim/image/upload/v1759161475/last_detail5_pljsfr.jpg"
+   ],
+   "title": "연천 42평 경량 철골 주택",
+   "type": "경량 철골 구조",
+   "usage": "전원주택",
+   "year": 2024,
+   "youtubeUrl": ""
+  }
+ },
+ "_note": "사이트 반영값은 src/components/sites/a365/data.ts 가 기준. 2026-10-24 검토: 연천 30평 siteArea 89→99(제목 기준), 동두천 제목에 40평 추가, 표기 통일."
+}

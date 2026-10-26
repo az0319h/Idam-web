@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" fill="none">
+  <!-- C. IDAM 워드마크: A를 가로획 없는 지붕(박공) 형태로 그림 + 한글 보조 표기 -->
+  <g font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="118" font-weight="500" fill="currentColor">
+    <text x="24" y="112">ID</text>
+    <text x="220.7" y="112">M</text>
+  </g>
+  <path d="M147 112L181.4 34L215.8 112" stroke="currentColor" stroke-width="13" stroke-linejoin="miter" stroke-miterlimit="6" fill="none"/>
+  <text x="352" y="112" font-family="'Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="currentColor">이담건축</text>
+  <rect x="352" y="124" width="236" height="4" fill="currentColor"/>
+</svg>

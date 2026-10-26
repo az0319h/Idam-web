@@ -16,7 +16,7 @@ export function Hero() {
       </div>
       <div className="a365-hero-media">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={hero.image} alt="" width={hero.width} height={hero.height} fetchPriority="high" />
+        <img src={hero.image} alt={hero.heading} width={hero.width} height={hero.height} fetchPriority="high" />
         <div className="a365-hero-mask" />
       </div>
     </section>
