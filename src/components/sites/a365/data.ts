@@ -211,7 +211,7 @@ export const service = {
     {
       number: "03",
       title: "견적서 작성 및 계약",
-      images: ["/sites/idam/process/step3-contract.jpg", "/sites/idam/process/step3-materials.jpg"],
+      images: ["/sites/idam/process/step3-materials.jpg"],
       headline: "항목별 근거가 있는 견적",
       paragraphs: [
         ["건축 규모, 자재 선택, 시공 방식, 현장 조건을 종합해 ", { strong: "항목별 견적서" }, "를 작성합니다. 단순히 가격을 산출하는 데 그치지 않고, 어떤 자재와 공법을 왜 선택했는지 함께 설명드립니다."],

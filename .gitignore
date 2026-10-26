@@ -71,3 +71,4 @@ public/generated/
 public/sites/a365/*
 !public/sites/a365/icons/
 public/sites/a365/icons/a365-logo-*.svg
+.env*
