@@ -32,9 +32,9 @@ function DropdownItem({ item }: { item: ServiceItem }) {
           <div className="a365-service-image-block">
             <div className="a365-grid">
               <div className="a365-service-images a365-dd-images">
-                {item.images.map((src) => (
+                {item.images.map((src, i) => (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img key={src} src={src} alt="" width={894} height={564} loading="lazy" />
+                  <img key={src} src={src} alt={`${item.title} 사진 ${i + 1}`} width={894} height={564} loading="lazy" />
                 ))}
               </div>
             </div>
