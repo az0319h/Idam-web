@@ -38,7 +38,7 @@ export const aboutPage = {
     values: [
       { icon: "star", title: "직접 짓습니다", strong: true, text: "기초와 구조부터 외장, 마감까지 이담건축이 직접 시공합니다. 누가 짓는지 분명하니, 문제가 생겨도 책임지는 사람이 분명합니다." },
       { icon: "heart", title: "현장을 보고 견적합니다", strong: true, text: "도면만 보고 가격을 말하지 않습니다. 부지와 주변 환경을 직접 확인한 뒤 항목별 근거가 있는 견적을 드립니다. 상담과 방문은 무료입니다." },
-      { icon: "circle", title: "준공 후에도 책임집니다", strong: false, text: "집을 인도한 뒤에도 연락 주시면 됩니다. 필요한 경우 하자 보수를 지원하고, 살면서 바뀌는 요구에 맞춰 공간 개선을 제안합니다." },
+      { icon: "circle", title: "준공 후에도 책임집니다", strong: false, text: "집을 인도한 뒤 최대 6개월 동안 하자 보수를 해 드립니다. 사용승인 과정에서 시공 문제가 확인되어도 이 기간 안에 고쳐 드립니다." },
     ] satisfies ValueItem[],
   },
   awards: {
