@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { HomeAndConstructionBusiness, WithContext } from "schema-dts";
+import type { HomeAndConstructionBusiness, WebSite, WithContext } from "schema-dts";
 import { freesentation } from "@/components/sites/a365/fonts";
 import { brand, socialLinks } from "@/components/sites/a365/data";
 import { SITE_URL, site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: site.keywords,
   alternates: { canonical: "/" },
-  icons: { icon: "/sites/idam/favicon.ico" },
+  icons: { icon: [{ url: "/sites/idam/favicon.ico" }], shortcut: "/sites/idam/favicon.ico" },
   openGraph: {
     type: "website",
     locale: site.locale,
@@ -38,7 +38,7 @@ const business: WithContext<HomeAndConstructionBusiness> = {
   "@id": `${SITE_URL}/#business`,
   name: brand.name,
   url: SITE_URL,
-  logo: `${SITE_URL}${brand.logoBlack}`,
+  logo: `${SITE_URL}/icon.png`,
   image: `${SITE_URL}${site.ogImage}`,
   description: site.description,
   telephone: "+82-10-7123-0261",
@@ -50,6 +50,18 @@ const business: WithContext<HomeAndConstructionBusiness> = {
   sameAs: socialLinks.map((s) => s.href),
 };
 
+/** 구글 검색 결과 상단의 사이트 이름 표시용 (schema.org WebSite). */
+const website: WithContext<WebSite> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: brand.name,
+  alternateName: ["이담", "IDAM"],
+  url: `${SITE_URL}/`,
+  inLanguage: "ko-KR",
+  publisher: { "@id": `${SITE_URL}/#business` },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${freesentation.variable} h-full`}>
       <body className="a365 min-h-full flex flex-col">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([website, business]) }} />
         {children}
       </body>
     </html>
