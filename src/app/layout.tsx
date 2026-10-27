@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: site.keywords,
   alternates: { canonical: "/" },
+  icons: { icon: [{ url: "/sites/idam/favicon.ico" }], shortcut: "/sites/idam/favicon.ico" },
   openGraph: {
     type: "website",
     locale: site.locale,
