@@ -1,22 +1,26 @@
 /** 사이트 전역 SEO 설정. 도메인은 배포 환경변수로 받는다. */
 import { brand } from "@/components/sites/a365/data";
 
-const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
+/** 운영 도메인. next.config.ts 의 리다이렉트 대상과 같아야 한다. */
+const PRODUCTION_URL = "https://doodreamidam.site";
+
 /**
- * 배포 도메인. 미설정 시 로컬 주소. 끝의 슬래시는 제거하고,
- * "idam-web.vercel.app"처럼 프로토콜 없이 들어오면 https:// 를 붙인다 (new URL() 실패 방지).
+ * 끝의 슬래시를 지우고, 프로토콜 없이 들어오면 https:// 를 붙인다 (new URL() 실패 방지).
+ * *.vercel.app 은 예전 임시 주소라 대표 주소로 쓰지 않는다 (환경변수에 남아 있어도 무시).
  */
-/** 운영 도메인. 환경변수가 없을 때의 기본값. */
-const PRODUCTION_URL = "https://idam-web.vercel.app";
-const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
-const pick = raw || vercelProd;
-export const SITE_URL = pick
-  ? /^https?:\/\//.test(pick)
-    ? pick.replace(/\/+$/, "")
-    : `https://${pick.replace(/\/+$/, "")}`
-  : process.env.NODE_ENV === "development"
+const usable = (value?: string) => {
+  const v = value?.trim().replace(/\/+$/, "");
+  if (!v) return undefined;
+  const url = /^https?:\/\//.test(v) ? v : `https://${v}`;
+  return /\.vercel\.app$/i.test(url.replace(/^https?:\/\//, "")) ? undefined : url;
+};
+
+/** 사이트 대표 주소. 우선순위: NEXT_PUBLIC_SITE_URL → (개발) localhost → Vercel 운영 도메인 → PRODUCTION_URL */
+export const SITE_URL =
+  usable(process.env.NEXT_PUBLIC_SITE_URL) ??
+  (process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : PRODUCTION_URL;
+    : (usable(process.env.VERCEL_PROJECT_PRODUCTION_URL) ?? PRODUCTION_URL));
 
 export const site = {
   name: brand.name,
