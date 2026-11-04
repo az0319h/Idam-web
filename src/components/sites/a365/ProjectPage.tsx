@@ -1,5 +1,8 @@
+import Image from "next/image";
 import type { WorkItem } from "./data";
+import { NewsCard } from "./InsidePage";
 import { ParallaxImage } from "./ParallaxImage";
+import { news } from "./data";
 import { Reveal } from "./Reveal";
 import { WorkCard } from "./WorkCard";
 import { galleryLayout, nextWorks, splitDescription } from "./projects";
@@ -15,6 +18,7 @@ const labels = {
   interior: "내장재",
   completion: "준공",
   features: "특징",
+  related: "관련 현장 기록",
   next: "다음 작품",
 };
 
@@ -27,13 +31,12 @@ function Gallery({ item }: { item: WorkItem }) {
           <div className="a365-grid">
             {items.map((g, i) => (
               <div key={g.src} className={g.layout === "wide" ? "a365-project-wide" : "a365-project-tall"}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={g.src}
-                  alt={`${item.name} 사진 ${i + 1}`}
+                  alt={`${item.name} ${g.layout === "wide" ? "외관" : "상세"} 사진 ${i + 1}`}
                   width={g.width}
                   height={g.height}
-                  loading="lazy"
+                  sizes={g.layout === "wide" ? "100vw" : "(max-width: 767px) 100vw, 50vw"}
                   className={g.layout === "wide" ? "a365-project-image" : "a365-project-image-tall"}
                 />
               </div>
@@ -48,6 +51,7 @@ function Gallery({ item }: { item: WorkItem }) {
 export function ProjectPage({ project }: { project: WorkItem }) {
   const { lead, body } = splitDescription(project.description);
   const next = nextWorks(project.slug);
+  const related = project.relatedPosts.map((slug) => news.find((n) => n.href === `/inside/${slug}`)).filter((n): n is NonNullable<typeof n> => Boolean(n));
   const spec: [string, string][] = [
     [labels.area, `${project.area}㎡ (약 ${Math.round(project.area / 3.3058)}평)`],
     [labels.floors, project.floors],
@@ -87,7 +91,7 @@ export function ProjectPage({ project }: { project: WorkItem }) {
                 </div>
               </div>
 
-              <ParallaxImage bare image={project.image} width={project.width} height={project.height} alt={`${project.name} 대표 사진`} />
+              <ParallaxImage bare eager image={project.image} width={project.width} height={project.height} alt={`${project.name} 대표 사진`} />
 
               <div className="a365-project-detail">
                 <div className="a365-vflex a365-gap-8">
@@ -135,6 +139,27 @@ export function ProjectPage({ project }: { project: WorkItem }) {
       </section>
 
       <Gallery item={project} />
+
+      {related.length > 0 && (
+        <section>
+          <div className="a365-top-divider">
+            <div className="a365-container">
+              <div className="a365-grid">
+                <h2 className="a365-standard a365-more-label">{labels.related}</h2>
+                <div className="a365-more-list">
+                  <div className="a365-blog-list a365-blog-list-2">
+                    {related.map((item) => (
+                      <Reveal key={item.href}>
+                        <NewsCard item={item} />
+                      </Reveal>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section>
         <div className="a365-top-divider">

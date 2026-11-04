@@ -7,8 +7,10 @@
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   color: #333;
   background: #fff;
+  /* Freesentation 은 fonts.css 에서 unicode-range 조각으로 선언된다 (scripts/subset-fonts.py). */
+  --font-hn: "Freesentation";
   --font-alpina: var(--font-hn);
-  font-family: var(--font-hn), "Freesentation", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  font-family: var(--font-hn), "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   word-break: keep-all;
   overflow-wrap: anywhere;
   font-size: 14px;
@@ -172,6 +174,7 @@
 
 /* ---------- contact page ---------- */
 .a365-container.a365-container-page-heading { padding-top: 4rem; padding-bottom: 15rem; }
+.a365-page-intro { max-width: 40rem; margin-top: 2rem; }
 .a365-contact-grid { grid-auto-rows: auto; }
 .a365-contact-info { grid-area: 1 / 1 / 2 / 4; }
 .a365-contact-block {

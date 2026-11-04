@@ -71,6 +71,8 @@ export interface WorkItem {
   description: string;
   /** 상세 페이지 경로 (/works/<slug>). 비어 있으면 카드에 링크를 걸지 않는다. */
   href: string;
+  /** 작품 아래에 묶어 보여줄 현장 소식 slug (공법이 같은 기록). */
+  relatedPosts: string[];
   image: string;
   width: number;
   height: number;
@@ -94,6 +96,7 @@ export const allWork: WorkItem[] = [
       features: ["단순한 상자형 외관", "큰 창으로 확보한 채광과 개방감", "검정과 나무색이 대비되는 외장", "가족이 쓰는 야외 포치"],
       description: "경기도 연천군 장탄리에 2024년 8월 준공한 단층 경량 철골 주택입니다. 건축 면적은 139㎡(약 42평)입니다. 전면에 큰 창을 두어 거실 깊숙이 빛이 들고, 외장은 세라믹 사이딩과 클래딩 사이딩으로 마감해 검정과 나무색이 대비됩니다. 포치는 가족이 쉬고 바깥 활동을 하는 공간으로 쓰이며, 실내는 목공 마감을 중심으로 아늑하게 꾸몄습니다.",
       href: "/works/yeoncheon-42",
+      relatedPosts: ["insulation", "panel-wall"],
       image: "/sites/idam/works/yeoncheon-42/main.jpg",
       width: 2000,
       height: 1167,
@@ -114,6 +117,7 @@ export const allWork: WorkItem[] = [
       features: ["목조 구조의 따뜻한 외관", "넓은 데크와 마당 연결", "두 가지 외장재 조합"],
       description: "경기도 동두천시에 2024년 10월 준공한 2층 목조 주택입니다. 건축 면적은 132㎡(약 40평)입니다. 목조 구조의 따뜻한 느낌을 살리고, 외장은 세라믹 사이딩과 클래딩 사이딩을 섞어 마감했습니다. 넓은 데크가 마당으로 이어져 가족이 함께 지내기에 여유로운 집입니다.",
       href: "/works/dongducheon-wood",
+      relatedPosts: ["timber-frame", "insulation"],
       image: "/sites/idam/works/dongducheon-wood/main.jpg",
       width: 2000,
       height: 1167,
@@ -134,6 +138,7 @@ export const allWork: WorkItem[] = [
       features: ["단층 구성", "에너지 절약형 단열 시공", "짧고 효율적인 동선", "작은 가족에 맞는 규모"],
       description: "경기도 연천군에 2024년 5월 준공한 단층 경량 철골 주택입니다. 건축 면적은 89㎡(약 27평)입니다. 외장은 세라믹 사이딩과 징크 판넬, 클래딩 사이딩으로 마감했고, 실내는 친환경 마감재와 실크 도배로 깔끔하게 정리했습니다. 단열을 두껍게 넣고 동선을 짧게 잡아, 신혼부부나 소규모 가족, 두 번째 집으로 알맞은 실속 있는 집입니다.",
       href: "/works/yeoncheon-27",
+      relatedPosts: ["panel-wall", "insulation"],
       image: "/sites/idam/works/yeoncheon-27/main.jpg",
       width: 2000,
       height: 1167,
@@ -154,6 +159,7 @@ export const allWork: WorkItem[] = [
       features: ["튼튼한 경량 철골 구조", "개방형 거실 위 다락", "흰 벽과 원목 바닥의 실내"],
       description: "경기도 연천군에 2023년 9월 준공한 2층 경량 철골 주택입니다. 건축 면적은 99㎡(약 30평)입니다. 외장은 세라믹 사이딩과 징크 판넬, 클래딩 사이딩으로 마감했고, 실내는 흰 벽과 원목 바닥으로 따뜻하게 꾸몄습니다. 개방형 거실 위에 다락을 올려 같은 면적에서 쓸 수 있는 공간을 넓혔습니다.",
       href: "/works/yeoncheon-30",
+      relatedPosts: ["insulation", "panel-wall"],
       image: "/sites/idam/works/yeoncheon-30/main.jpg",
       width: 2000,
       height: 1167,
@@ -264,17 +270,19 @@ export interface NewsItem {
   text: string;
 }
 
-/** 현장 기록 글을 카드 데이터로 변환 (홈·목록 공용). */
-export const news: NewsItem[] = posts.map((p) => ({
-  title: p.title,
-  href: `/inside/${p.slug}`,
-  image: p.hero.src,
-  width: 2048,
-  height: 1360,
-  date: p.date,
-  category: p.category,
-  text: p.look,
-}));
+/** 현장 기록 글을 카드 데이터로 변환 (홈·목록 공용). 최신 글이 앞에 온다. */
+export const news: NewsItem[] = [...posts]
+  .sort((a, b) => (a.date < b.date ? 1 : -1))
+  .map((p) => ({
+    title: p.title,
+    href: `/inside/${p.slug}`,
+    image: p.hero.src,
+    width: 2048,
+    height: 1360,
+    date: p.date,
+    category: p.category,
+    text: p.look,
+  }));
 
 export const inside = {
   heading: "현장 소식",
@@ -368,6 +376,8 @@ export const contact = {
 export const workPage = {
   title: "건축 작품",
   heading: "건축 작품",
+  /** 제목 아래 소개 문단. 검색엔진이 목록 페이지의 주제를 읽을 수 있게 한다. */
+  intro: "이담건축이 경기 북부에 직접 지은 집들입니다. 연천과 동두천의 목조 주택, 경량 철골 주택을 평수와 구조, 외장재, 준공 시기와 함께 기록합니다. 설계 도면이 있으면 그대로 짓고, 없으면 설계업체를 소개해 드립니다.",
   tabs: { grid: "격자", list: "목록" },
   detail: "자세히 보기",
 };

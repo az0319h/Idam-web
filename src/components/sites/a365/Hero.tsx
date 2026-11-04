@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { hero, ui } from "./data";
 
 export function Hero() {
@@ -15,8 +16,8 @@ export function Hero() {
         </div>
       </div>
       <div className="a365-hero-media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={hero.image} alt={hero.heading} width={hero.width} height={hero.height} fetchPriority="high" />
+        {/* 첫 화면의 LCP 요소: head 에서 미리 받는다. */}
+        <Image src={hero.image} alt={hero.heading} width={hero.width} height={hero.height} sizes="100vw" preload />
         <div className="a365-hero-mask" />
       </div>
     </section>

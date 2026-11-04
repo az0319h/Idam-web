@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import type { HomeAndConstructionBusiness, WebSite, WithContext } from "schema-dts";
-import { freesentation } from "@/components/sites/a365/fonts";
-import { brand, socialLinks } from "@/components/sites/a365/data";
-import { SITE_URL, site } from "@/lib/site";
+import { jsonLd, websiteSchema } from "@/lib/schema";
+import { SITE_URL, alternatesFor, site } from "@/lib/site";
 import "./globals.css";
+import "@/components/sites/a365/fonts.css";
 import "@/components/sites/a365/a365.css";
 
 const verification: NonNullable<Metadata["verification"]> = {};
@@ -15,8 +14,15 @@ export const metadata: Metadata = {
   title: { default: site.title, template: site.titleTemplate },
   description: site.description,
   keywords: site.keywords,
-  alternates: { canonical: "/" },
-  icons: { icon: [{ url: "/sites/idam/favicon.ico" }], shortcut: "/sites/idam/favicon.ico" },
+  applicationName: site.name,
+  alternates: alternatesFor("/"),
+  icons: {
+    icon: [
+      { url: "/sites/idam/favicon.ico", sizes: "any" },
+      { url: "/sites/idam/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/sites/idam/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: site.locale,
@@ -27,39 +33,9 @@ export const metadata: Metadata = {
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.ogImageAlt }],
   },
   twitter: { card: "summary_large_image", title: site.title, description: site.description, images: [site.ogImage] },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   verification,
-};
-
-/** 구글·네이버용 업체 정보 (schema.org LocalBusiness). */
-const business: WithContext<HomeAndConstructionBusiness> = {
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "@id": `${SITE_URL}/#business`,
-  name: brand.name,
-  url: SITE_URL,
-  logo: `${SITE_URL}/icon.png`,
-  image: `${SITE_URL}${site.ogImage}`,
-  description: site.description,
-  telephone: "+82-10-7123-0261",
-  email: brand.email,
-  address: { "@type": "PostalAddress", streetAddress: "평화로2862번길 94", addressLocality: "동두천시", addressRegion: "경기도", addressCountry: "KR" },
-  areaServed: site.regions.map((name) => ({ "@type": "City", name })),
-  foundingDate: "2014",
-  priceRange: "상담 무료",
-  sameAs: socialLinks.map((s) => s.href),
-};
-
-/** 구글 검색 결과 상단의 사이트 이름 표시용 (schema.org WebSite). */
-const website: WithContext<WebSite> = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${SITE_URL}/#website`,
-  name: brand.name,
-  alternateName: ["이담", "IDAM"],
-  url: `${SITE_URL}/`,
-  inLanguage: "ko-KR",
-  publisher: { "@id": `${SITE_URL}/#business` },
+  other: { "geo.region": "KR-41", "geo.placename": "동두천시" },
 };
 
 export default function RootLayout({
@@ -68,9 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${freesentation.variable} h-full`}>
+    <html lang="ko" className="h-full">
       <body className="a365 min-h-full flex flex-col">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([website, business]) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(websiteSchema) }} />
         {children}
       </body>
     </html>
