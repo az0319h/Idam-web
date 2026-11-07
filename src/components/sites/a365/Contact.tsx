@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { contact } from "./data";
 import { ContactForm } from "./ContactForm";
 import { Reveal } from "./Reveal";
@@ -41,8 +42,7 @@ export function ContactBody() {
               </div>
 
               <div className="a365-map-box">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={contact.map.image} alt={contact.map.alt} width={contact.map.width} height={contact.map.height} loading="lazy" sizes="100vw" />
+                <Image src={contact.map.image} alt={contact.map.alt} width={contact.map.width} height={contact.map.height} sizes="100vw" />
               </div>
 
               <Reveal className="a365-contact-form-wrap">

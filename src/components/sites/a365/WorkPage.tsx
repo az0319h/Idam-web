@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { allWork, workPage } from "./data";
 import { Reveal } from "./Reveal";
@@ -13,6 +14,7 @@ export function WorkHeading() {
       <div className="a365-container a365-container-page-heading">
         <Reveal>
           <h1 className="a365-big-heading">{workPage.heading}</h1>
+          <p className="a365-standard a365-page-intro">{workPage.intro}</p>
         </Reveal>
       </div>
     </section>
@@ -46,9 +48,9 @@ export function WorkTabs() {
             <div className="a365-tabs-content">
               <div id="a365-pane-grid" role="tabpanel" aria-labelledby="a365-tab-grid" className="a365-tab-pane a365-tab-pane-grid" hidden={tab !== "grid"}>
                 <div className="a365-collection">
-                  {allWork.map((item) => (
+                  {allWork.map((item, i) => (
                     <Reveal key={item.slug}>
-                      <WorkCard item={item} />
+                      <WorkCard item={item} eager={i === 0} />
                     </Reveal>
                   ))}
                 </div>
@@ -62,8 +64,7 @@ export function WorkTabs() {
                           <div className="a365-standard a365-wl-year">{item.year}</div>
                           <div className="a365-medium a365-wl-name">{item.name}</div>
                           <div className="a365-thumb-wrap a365-wl-thumb">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={item.image} alt={`${item.name} 대표 사진`} width={item.width} height={item.height} loading="lazy" className="a365-thumb" />
+                            <Image src={item.image} alt={`${item.name} 대표 사진`} width={item.width} height={item.height} sizes="(max-width: 767px) 100vw, 20vw" className="a365-thumb" />
                           </div>
                           <div className="a365-wl-button">
                             <div className="a365-standard">{workPage.detail}</div>

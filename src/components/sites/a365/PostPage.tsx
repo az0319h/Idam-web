@@ -2,7 +2,8 @@ import { brand, news } from "./data";
 import { NewsCard } from "./InsidePage";
 import { ParallaxImage } from "./ParallaxImage";
 import { Reveal } from "./Reveal";
-import type { SitePost } from "./posts";
+import { relatedPosts, type SitePost } from "./posts";
+import { isoMonth } from "@/lib/schema";
 
 const labels = {
   look: "지금 보고 있는 것",
@@ -15,7 +16,8 @@ const labels = {
  * 원본 a365 뉴스 상세 구조: 제목 → 정보 블록(작성자 · 날짜/분류 · 화살표) → 전폭 사진 → 본문(7~11칸) → 다른 소식 2열.
  */
 export function PostPage({ post }: { post: SitePost }) {
-  const others = news.filter((n) => n.href !== `/inside/${post.slug}`).slice(0, 2);
+  const slugs = relatedPosts(post.slug).map((p) => `/inside/${p.slug}`);
+  const others = slugs.map((href) => news.find((n) => n.href === href)).filter((n): n is NonNullable<typeof n> => Boolean(n));
   return (
     <>
       <section>
@@ -41,7 +43,9 @@ export function PostPage({ post }: { post: SitePost }) {
                     </div>
                   </div>
                   <div className="a365-news-catdate">
-                    <div className="a365-standard">{post.date}</div>
+                    <time className="a365-standard" dateTime={isoMonth(post.date)}>
+                      {post.date}
+                    </time>
                     <div className="a365-dot a365-dot-small" />
                     <div className="a365-standard">{post.category}</div>
                   </div>
@@ -52,7 +56,7 @@ export function PostPage({ post }: { post: SitePost }) {
                 </div>
               </div>
 
-              <ParallaxImage bare className="a365-post-hero" image={post.hero.src} width={2048} height={1360} alt={post.hero.caption} />
+              <ParallaxImage bare eager className="a365-post-hero" image={post.hero.src} width={2048} height={1360} alt={post.hero.caption || `${post.title} 현장 사진`} />
               <p className="a365-post-ai-note">원본 현장 사진을 AI로 재구성한 이미지입니다.</p>
 
               <div className="a365-news-body">

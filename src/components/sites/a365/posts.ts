@@ -95,3 +95,18 @@ export const postSlugs = posts.map((p) => p.slug);
 export function postBySlug(slug: string): SitePost | undefined {
   return posts.find((p) => p.slug === slug);
 }
+
+/** "다른 기록" 2건: 같은 공정의 글을 먼저, 그다음 최신 글 (자기 자신 제외). */
+export function relatedPosts(slug: string, count = 2): SitePost[] {
+  const self = postBySlug(slug);
+  const rest = [...posts].filter((p) => p.slug !== slug).sort((a, b) => (a.date < b.date ? 1 : -1));
+  if (!self) return rest.slice(0, count);
+  const same = rest.filter((p) => p.category === self.category);
+  const others = rest.filter((p) => p.category !== self.category);
+  return [...same, ...others].slice(0, count);
+}
+
+/** 설명문이 비어 있는 글도 고유한 meta description 을 갖도록 한다. */
+export function postDescription(post: SitePost): string {
+  return post.look || post.hero.caption || `${post.title}. 이담건축 ${post.category} 공정 현장 기록입니다.`;
+}

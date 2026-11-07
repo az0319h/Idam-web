@@ -7,6 +7,11 @@ const NEW_ORIGIN = "https://doodreamidam.site";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  /** 원본 JPG 대신 화면 크기에 맞는 AVIF/WebP 를 내보낸다 (휴대폰 LCP 개선). */
+  images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [75],
+  },
   async redirects() {
     return [
       {

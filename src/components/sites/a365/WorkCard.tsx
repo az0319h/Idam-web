@@ -1,18 +1,23 @@
+import Image from "next/image";
 import type { WorkItem } from "./data";
 
 interface WorkCardProps {
   item: WorkItem;
   alt?: string;
   serifPadding?: boolean;
+  /** 화면 맨 위 카드(LCP)는 지연 로딩하지 않는다. */
+  eager?: boolean;
 }
 
+/** 2열 격자 기준 폭 (767px 이하 1열). */
+const CARD_SIZES = "(max-width: 767px) 100vw, 50vw";
+
 /** 작품 카드: 대표 사진, 작품명(밑줄은 호버 시), 기울임 부제(위치). `href`가 비어 있으면 링크를 걸지 않는다. */
-export function WorkCard({ item, alt, serifPadding = true }: WorkCardProps) {
+export function WorkCard({ item, alt, serifPadding = true, eager = false }: WorkCardProps) {
   const body = (
     <>
       <div className="a365-thumb-wrap">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.image} alt={alt ?? `${item.name} 대표 사진`} width={item.width} height={item.height} loading="lazy" className="a365-thumb" />
+        <Image src={item.image} alt={alt ?? `${item.name} 대표 사진`} width={item.width} height={item.height} sizes={CARD_SIZES} loading={eager ? "eager" : "lazy"} className="a365-thumb" />
       </div>
       <div>
         <div className="a365-name-wrap">

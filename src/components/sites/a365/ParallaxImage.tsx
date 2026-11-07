@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { parallax } from "./data";
 
@@ -18,9 +19,11 @@ interface ParallaxImageProps {
   scaleFrom?: number;
   /** 래퍼에 추가할 클래스 */
   className?: string;
+  /** 페이지 상단의 LCP 이미지는 지연 로딩하지 않는다. */
+  eager?: boolean;
 }
 
-export function ParallaxImage({ image = parallax.image, width = parallax.width, height = parallax.height, alt = parallax.alt, bare = false, scaleFrom = 1.2, className }: ParallaxImageProps) {
+export function ParallaxImage({ image = parallax.image, width = parallax.width, height = parallax.height, alt = parallax.alt, bare = false, scaleFrom = 1.2, className, eager = false }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,8 +60,7 @@ export function ParallaxImage({ image = parallax.image, width = parallax.width, 
 
   const wrapper = (
     <div ref={ref} className={["a365-parallax", className].filter(Boolean).join(" ")}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={image} alt={alt} width={width} height={height} loading="lazy" />
+      <Image src={image} alt={alt} width={width} height={height} sizes="100vw" loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined} />
     </div>
   );
   return bare ? wrapper : <section>{wrapper}</section>;
