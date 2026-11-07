@@ -42,6 +42,12 @@ export const businessSchema: WithContext<GeneralContractor> = {
   geo: { "@type": "GeoCoordinates", latitude: 37.94121, longitude: 127.06016 },
   areaServed: [{ "@type": "AdministrativeArea", name: "경기 북부" }, ...site.regions.map((name) => ({ "@type": "City" as const, name }))],
   foundingDate: "2014",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "10:00",
+    closes: "19:00",
+  },
   knowsAbout: ["목조 주택", "경량 철골 주택", "전원주택 신축", "판넬 공장", "판넬 창고", "상가 인테리어", "증축·개축"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
