@@ -1,8 +1,6 @@
 import Image from "next/image";
 import type { WorkItem } from "./data";
-import { NewsCard } from "./InsidePage";
 import { ParallaxImage } from "./ParallaxImage";
-import { news } from "./data";
 import { Reveal } from "./Reveal";
 import { WorkCard } from "./WorkCard";
 import { galleryLayout, nextWorks, splitDescription } from "./projects";
@@ -18,7 +16,6 @@ const labels = {
   interior: "내장재",
   completion: "준공",
   features: "특징",
-  related: "관련 현장 기록",
   next: "다음 작품",
 };
 
@@ -48,10 +45,10 @@ function Gallery({ item }: { item: WorkItem }) {
   );
 }
 
+/** 작품 상세: 개요, 갤러리, 다음 작품. 현장 소식(관련 기록) 카드는 넣지 않는다. */
 export function ProjectPage({ project }: { project: WorkItem }) {
   const { lead, body } = splitDescription(project.description);
   const next = nextWorks(project.slug);
-  const related = project.relatedPosts.map((slug) => news.find((n) => n.href === `/inside/${slug}`)).filter((n): n is NonNullable<typeof n> => Boolean(n));
   const spec: [string, string][] = [
     [labels.area, `${project.area}㎡ (약 ${Math.round(project.area / 3.3058)}평)`],
     [labels.floors, project.floors],
@@ -139,27 +136,6 @@ export function ProjectPage({ project }: { project: WorkItem }) {
       </section>
 
       <Gallery item={project} />
-
-      {related.length > 0 && (
-        <section>
-          <div className="a365-top-divider">
-            <div className="a365-container">
-              <div className="a365-grid">
-                <h2 className="a365-standard a365-more-label">{labels.related}</h2>
-                <div className="a365-more-list">
-                  <div className="a365-blog-list a365-blog-list-2">
-                    {related.map((item) => (
-                      <Reveal key={item.href}>
-                        <NewsCard item={item} />
-                      </Reveal>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       <section>
         <div className="a365-top-divider">
