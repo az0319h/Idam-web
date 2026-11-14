@@ -158,7 +158,7 @@ export const privacyPage = {
           items: [
             ["개인정보 보호책임자", "홍성훈 (대표)"],
             ["연락처", "010-7123-0261"],
-            ["이메일", "idamstudio.doodream@gmail.com"],
+            ["이메일", "idam.info.kr@gmail.com"],
             ["운영 시간", "평일 09:00 ~ 18:00 (주말·공휴일 제외)"],
           ],
         },

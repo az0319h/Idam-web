@@ -11,7 +11,7 @@ export const brand = {
   tagline: "경기 북부 주택 시공",
   phone: "010-7123-0261",
   phoneHref: "tel:01071230261",
-  email: "idamstudio.doodream@gmail.com",
+  email: "idam.info.kr@gmail.com",
   address: "경기도 동두천시 평화로2862번길 94 (동두천동)",
   jibun: "경기도 동두천시 동두천동 산12",
   logoWhite: "/sites/idam/icons/logo-white.svg",
